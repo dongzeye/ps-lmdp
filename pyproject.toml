@@ -1,0 +1,31 @@
+[project]
+name = "ps-lmdp"
+version = "0.1.0"
+description = "Minimal tabular latent-MDP algorithms"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+    "gymnasium==1.2.3",
+    "numpy==2.4.1",
+    "scipy==1.17.1",
+    "tyro==1.0.13",
+]
+
+[project.optional-dependencies]
+ps4 = ["jax==0.10.2", "numpyro==0.21.0"]
+dev = ["pytest>=8", "ruff>=0.6", "black>=24"]
+
+[tool.uv]
+package = false
+
+[tool.black]
+target-version = ["py312"]
+
+[tool.ruff]
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
